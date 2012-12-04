@@ -1,0 +1,3 @@
+[submodule "Frameworks/three20"]
+	path = Frameworks/three20
+	url = https://github.com/StoneFish/three20.git

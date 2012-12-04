@@ -1,0 +1,740 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3201088596B4756681693704 /* libThree20UICommon.a */; };
+		320A2827FEC940B25BC42C65 /* libThree20Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320A2827FEC940B25BC42C64 /* libThree20Core.a */; };
+		320A737074758E53BA54BE95 /* libThree20UINavigator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320A737074758E53BA54BE94 /* libThree20UINavigator.a */; };
+		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		320B6C86F11D9990244A9731 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320B6C86F11D9990244A9730 /* Three20.bundle */; };
+		B301D3F5166C3FA200E73841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B301D3F4166C3FA200E73841 /* UIKit.framework */; };
+		B301D3F7166C3FA200E73841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B301D3F6166C3FA200E73841 /* Foundation.framework */; };
+		B301D3F9166C3FA200E73841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B301D3F8166C3FA200E73841 /* CoreGraphics.framework */; };
+		B301D3FF166C3FA200E73841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B301D3FD166C3FA200E73841 /* InfoPlist.strings */; };
+		B301D401166C3FA200E73841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D400166C3FA200E73841 /* main.m */; };
+		B301D405166C3FA200E73841 /* SFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D404166C3FA200E73841 /* SFAppDelegate.m */; };
+		B301D407166C3FA200E73841 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B301D406166C3FA200E73841 /* Default.png */; };
+		B301D409166C3FA200E73841 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B301D408166C3FA200E73841 /* Default@2x.png */; };
+		B301D40B166C3FA200E73841 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B301D40A166C3FA200E73841 /* Default-568h@2x.png */; };
+		B301D413166C3FA300E73841 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B301D412166C3FA300E73841 /* SenTestingKit.framework */; };
+		B301D414166C3FA300E73841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B301D3F4166C3FA200E73841 /* UIKit.framework */; };
+		B301D415166C3FA300E73841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B301D3F6166C3FA200E73841 /* Foundation.framework */; };
+		B301D41D166C3FA300E73841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B301D41B166C3FA300E73841 /* InfoPlist.strings */; };
+		B301D420166C3FA300E73841 /* SFIocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D41F166C3FA300E73841 /* SFIocTests.m */; };
+		B301D435166C411400E73841 /* SFApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D432166C411400E73841 /* SFApplicationContext.m */; };
+		B301D436166C411400E73841 /* SFClassLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D433166C411400E73841 /* SFClassLoader.m */; };
+		B301D437166C411400E73841 /* SFObjectPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D434166C411400E73841 /* SFObjectPattern.m */; };
+		B301D43B166C41B400E73841 /* SFSingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D43A166C41B400E73841 /* SFSingletonObject.m */; };
+		B3FE7AEF166DA27800CA0B0C /* SFBaseApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AEE166DA27800CA0B0C /* SFBaseApplicationContext.m */; };
+		B3FE7AF2166DA31D00CA0B0C /* SFMyClassLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AF1166DA31D00CA0B0C /* SFMyClassLoader.m */; };
+		B3FE7AF5166DBB7500CA0B0C /* SFDrink.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AF4166DBB7500CA0B0C /* SFDrink.m */; };
+		B3FE7AF8166DC73000CA0B0C /* SFCoffee.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AF7166DC73000CA0B0C /* SFCoffee.m */; };
+		B3FE7AFB166DE14D00CA0B0C /* SFContextConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AFA166DE14C00CA0B0C /* SFContextConfigurator.m */; };
+		B3FE7AFE166DED3A00CA0B0C /* SFMilk.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AFD166DED3900CA0B0C /* SFMilk.m */; };
+		B3FE7B01166DF80B00CA0B0C /* SFXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7B00166DF80A00CA0B0C /* SFXMLParser.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3201088596B4756681693702 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3201088596B4756681693700 /* Three20UICommon.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BEF31F390F352DF5000DE5D2;
+			remoteInfo = Three20UICommon;
+		};
+		3201088596B4756681693706 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3201088596B4756681693700 /* Three20UICommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteInfo = Three20UICommon;
+		};
+		320A2827FEC940B25BC42C62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BEF31F390F352DF5000DE5D2;
+			remoteInfo = Three20Core;
+		};
+		320A2827FEC940B25BC42C66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteInfo = Three20Core;
+		};
+		320A737074758E53BA54BE92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BEF31F390F352DF5000DE5D2;
+			remoteInfo = Three20UINavigator;
+		};
+		320A737074758E53BA54BE96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteInfo = Three20UINavigator;
+		};
+		B301D416166C3FA300E73841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B301D3E7166C3FA200E73841 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B301D3EF166C3FA200E73841;
+			remoteInfo = SFIoc;
+		};
+		B308DD5E166C56B200CF1223 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteInfo = Three20CoreUnitTests;
+		};
+		B308DD6A166C56B200CF1223 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3201088596B4756681693700 /* Three20UICommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteInfo = Three20UICommonUnitTests;
+		};
+		B308DD6D166C56B200CF1223 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteInfo = Three20UINavigatorUnitTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3201088596B4756681693700 /* Three20UICommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UICommon.xcodeproj; path = Frameworks/three20/src/Three20UICommon/Three20UICommon.xcodeproj; sourceTree = SOURCE_ROOT; };
+		320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Core.xcodeproj; path = Frameworks/three20/src/Three20Core/Three20Core.xcodeproj; sourceTree = SOURCE_ROOT; };
+		320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UINavigator.xcodeproj; path = Frameworks/three20/src/Three20UINavigator/Three20UINavigator.xcodeproj; sourceTree = SOURCE_ROOT; };
+		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = Frameworks/three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
+		B301D3F0166C3FA200E73841 /* SFIoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFIoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B301D3F4166C3FA200E73841 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B301D3F6166C3FA200E73841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B301D3F8166C3FA200E73841 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B301D3FC166C3FA200E73841 /* SFIoc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SFIoc-Info.plist"; sourceTree = "<group>"; };
+		B301D3FE166C3FA200E73841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B301D400166C3FA200E73841 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B301D402166C3FA200E73841 /* SFIoc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SFIoc-Prefix.pch"; sourceTree = "<group>"; };
+		B301D403166C3FA200E73841 /* SFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFAppDelegate.h; sourceTree = "<group>"; };
+		B301D404166C3FA200E73841 /* SFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFAppDelegate.m; sourceTree = "<group>"; };
+		B301D406166C3FA200E73841 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B301D408166C3FA200E73841 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B301D40A166C3FA200E73841 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B301D411166C3FA300E73841 /* SFIocTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SFIocTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B301D412166C3FA300E73841 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B301D41A166C3FA300E73841 /* SFIocTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SFIocTests-Info.plist"; sourceTree = "<group>"; };
+		B301D41C166C3FA300E73841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B301D41E166C3FA300E73841 /* SFIocTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFIocTests.h; sourceTree = "<group>"; };
+		B301D41F166C3FA300E73841 /* SFIocTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFIocTests.m; sourceTree = "<group>"; };
+		B301D42F166C411400E73841 /* SFApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFApplicationContext.h; sourceTree = "<group>"; };
+		B301D430166C411400E73841 /* SFClassLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFClassLoader.h; sourceTree = "<group>"; };
+		B301D431166C411400E73841 /* SFObjectPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFObjectPattern.h; sourceTree = "<group>"; };
+		B301D432166C411400E73841 /* SFApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFApplicationContext.m; sourceTree = "<group>"; };
+		B301D433166C411400E73841 /* SFClassLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFClassLoader.m; sourceTree = "<group>"; };
+		B301D434166C411400E73841 /* SFObjectPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFObjectPattern.m; sourceTree = "<group>"; };
+		B301D439166C41B400E73841 /* SFSingletonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFSingletonObject.h; sourceTree = "<group>"; };
+		B301D43A166C41B400E73841 /* SFSingletonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFSingletonObject.m; sourceTree = "<group>"; };
+		B3FE7AED166DA27800CA0B0C /* SFBaseApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFBaseApplicationContext.h; sourceTree = "<group>"; };
+		B3FE7AEE166DA27800CA0B0C /* SFBaseApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFBaseApplicationContext.m; sourceTree = "<group>"; };
+		B3FE7AF0166DA31D00CA0B0C /* SFMyClassLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFMyClassLoader.h; path = SFIoc/SFMyClassLoader.h; sourceTree = SOURCE_ROOT; };
+		B3FE7AF1166DA31D00CA0B0C /* SFMyClassLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFMyClassLoader.m; path = SFIoc/SFMyClassLoader.m; sourceTree = SOURCE_ROOT; };
+		B3FE7AF3166DBB7500CA0B0C /* SFDrink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFDrink.h; path = SFIoc/SFDrink.h; sourceTree = SOURCE_ROOT; };
+		B3FE7AF4166DBB7500CA0B0C /* SFDrink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFDrink.m; path = SFIoc/SFDrink.m; sourceTree = SOURCE_ROOT; };
+		B3FE7AF6166DC73000CA0B0C /* SFCoffee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFCoffee.h; path = SFIoc/SFCoffee.h; sourceTree = SOURCE_ROOT; };
+		B3FE7AF7166DC73000CA0B0C /* SFCoffee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFCoffee.m; path = SFIoc/SFCoffee.m; sourceTree = SOURCE_ROOT; };
+		B3FE7AF9166DE14C00CA0B0C /* SFContextConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFContextConfigurator.h; sourceTree = "<group>"; };
+		B3FE7AFA166DE14C00CA0B0C /* SFContextConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFContextConfigurator.m; sourceTree = "<group>"; };
+		B3FE7AFC166DED3900CA0B0C /* SFMilk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFMilk.h; path = SFIoc/SFMilk.h; sourceTree = SOURCE_ROOT; };
+		B3FE7AFD166DED3900CA0B0C /* SFMilk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFMilk.m; path = SFIoc/SFMilk.m; sourceTree = SOURCE_ROOT; };
+		B3FE7AFF166DF80A00CA0B0C /* SFXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFXMLParser.h; sourceTree = "<group>"; };
+		B3FE7B00166DF80A00CA0B0C /* SFXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFXMLParser.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B301D3ED166C3FA200E73841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */,
+				320A737074758E53BA54BE95 /* libThree20UINavigator.a in Frameworks */,
+				320A2827FEC940B25BC42C65 /* libThree20Core.a in Frameworks */,
+				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
+				B301D3F5166C3FA200E73841 /* UIKit.framework in Frameworks */,
+				B301D3F7166C3FA200E73841 /* Foundation.framework in Frameworks */,
+				B301D3F9166C3FA200E73841 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B301D40D166C3FA300E73841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B301D413166C3FA300E73841 /* SenTestingKit.framework in Frameworks */,
+				B301D414166C3FA300E73841 /* UIKit.framework in Frameworks */,
+				B301D415166C3FA300E73841 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3201088596B4756681693703 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3201088596B4756681693704 /* libThree20UICommon.a */,
+				B308DD6B166C56B200CF1223 /* UICommonUnitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		320A2827FEC940B25BC42C63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				320A2827FEC940B25BC42C64 /* libThree20Core.a */,
+				B308DD5F166C56B200CF1223 /* CoreUnitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		320A737074758E53BA54BE93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				320A737074758E53BA54BE94 /* libThree20UINavigator.a */,
+				B308DD6E166C56B200CF1223 /* UINavigatorUnitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B301D3E5166C3FA200E73841 = {
+			isa = PBXGroup;
+			children = (
+				B301D42D166C408000E73841 /* Classes */,
+				B301D438166C41B400E73841 /* Dependencies */,
+				B301D3FA166C3FA200E73841 /* SFIoc */,
+				B301D418166C3FA300E73841 /* SFIocTests */,
+				B301D3F3166C3FA200E73841 /* Frameworks */,
+				B301D3F1166C3FA200E73841 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B301D3F1166C3FA200E73841 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B301D3F0166C3FA200E73841 /* SFIoc.app */,
+				B301D411166C3FA300E73841 /* SFIocTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B301D3F3166C3FA200E73841 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3201088596B4756681693700 /* Three20UICommon.xcodeproj */,
+				320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */,
+				320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */,
+				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
+				B301D3F4166C3FA200E73841 /* UIKit.framework */,
+				B301D3F6166C3FA200E73841 /* Foundation.framework */,
+				B301D3F8166C3FA200E73841 /* CoreGraphics.framework */,
+				B301D412166C3FA300E73841 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B301D3FA166C3FA200E73841 /* SFIoc */ = {
+			isa = PBXGroup;
+			children = (
+				B3FE7AF0166DA31D00CA0B0C /* SFMyClassLoader.h */,
+				B3FE7AF1166DA31D00CA0B0C /* SFMyClassLoader.m */,
+				B3FE7AF3166DBB7500CA0B0C /* SFDrink.h */,
+				B3FE7AF4166DBB7500CA0B0C /* SFDrink.m */,
+				B3FE7AF6166DC73000CA0B0C /* SFCoffee.h */,
+				B3FE7AF7166DC73000CA0B0C /* SFCoffee.m */,
+				B3FE7AFC166DED3900CA0B0C /* SFMilk.h */,
+				B3FE7AFD166DED3900CA0B0C /* SFMilk.m */,
+				B301D403166C3FA200E73841 /* SFAppDelegate.h */,
+				B301D404166C3FA200E73841 /* SFAppDelegate.m */,
+				B301D3FB166C3FA200E73841 /* Supporting Files */,
+			);
+			path = SFIoc;
+			sourceTree = "<group>";
+		};
+		B301D3FB166C3FA200E73841 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				320B6C86F11D9990244A9730 /* Three20.bundle */,
+				B301D3FC166C3FA200E73841 /* SFIoc-Info.plist */,
+				B301D3FD166C3FA200E73841 /* InfoPlist.strings */,
+				B301D400166C3FA200E73841 /* main.m */,
+				B301D402166C3FA200E73841 /* SFIoc-Prefix.pch */,
+				B301D406166C3FA200E73841 /* Default.png */,
+				B301D408166C3FA200E73841 /* Default@2x.png */,
+				B301D40A166C3FA200E73841 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B301D418166C3FA300E73841 /* SFIocTests */ = {
+			isa = PBXGroup;
+			children = (
+				B301D41E166C3FA300E73841 /* SFIocTests.h */,
+				B301D41F166C3FA300E73841 /* SFIocTests.m */,
+				B301D419166C3FA300E73841 /* Supporting Files */,
+			);
+			path = SFIocTests;
+			sourceTree = "<group>";
+		};
+		B301D419166C3FA300E73841 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B301D41A166C3FA300E73841 /* SFIocTests-Info.plist */,
+				B301D41B166C3FA300E73841 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B301D42D166C408000E73841 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B301D42F166C411400E73841 /* SFApplicationContext.h */,
+				B301D432166C411400E73841 /* SFApplicationContext.m */,
+				B3FE7AED166DA27800CA0B0C /* SFBaseApplicationContext.h */,
+				B3FE7AEE166DA27800CA0B0C /* SFBaseApplicationContext.m */,
+				B301D430166C411400E73841 /* SFClassLoader.h */,
+				B301D433166C411400E73841 /* SFClassLoader.m */,
+				B301D431166C411400E73841 /* SFObjectPattern.h */,
+				B301D434166C411400E73841 /* SFObjectPattern.m */,
+				B3FE7AF9166DE14C00CA0B0C /* SFContextConfigurator.h */,
+				B3FE7AFA166DE14C00CA0B0C /* SFContextConfigurator.m */,
+				B3FE7AFF166DF80A00CA0B0C /* SFXMLParser.h */,
+				B3FE7B00166DF80A00CA0B0C /* SFXMLParser.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B301D438166C41B400E73841 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				B301D439166C41B400E73841 /* SFSingletonObject.h */,
+				B301D43A166C41B400E73841 /* SFSingletonObject.m */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B301D3EF166C3FA200E73841 /* SFIoc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B301D423166C3FA300E73841 /* Build configuration list for PBXNativeTarget "SFIoc" */;
+			buildPhases = (
+				B301D3EC166C3FA200E73841 /* Sources */,
+				B301D3ED166C3FA200E73841 /* Frameworks */,
+				B301D3EE166C3FA200E73841 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3201088596B4756681693701 /* PBXTargetDependency */,
+				320A737074758E53BA54BE91 /* PBXTargetDependency */,
+				320A2827FEC940B25BC42C61 /* PBXTargetDependency */,
+			);
+			name = SFIoc;
+			productName = SFIoc;
+			productReference = B301D3F0166C3FA200E73841 /* SFIoc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B301D410166C3FA300E73841 /* SFIocTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B301D426166C3FA300E73841 /* Build configuration list for PBXNativeTarget "SFIocTests" */;
+			buildPhases = (
+				B301D40C166C3FA300E73841 /* Sources */,
+				B301D40D166C3FA300E73841 /* Frameworks */,
+				B301D40E166C3FA300E73841 /* Resources */,
+				B301D40F166C3FA300E73841 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B301D417166C3FA300E73841 /* PBXTargetDependency */,
+			);
+			name = SFIocTests;
+			productName = SFIocTests;
+			productReference = B301D411166C3FA300E73841 /* SFIocTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B301D3E7166C3FA200E73841 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SF;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = hand;
+			};
+			buildConfigurationList = B301D3EA166C3FA200E73841 /* Build configuration list for PBXProject "SFIoc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B301D3E5166C3FA200E73841;
+			productRefGroup = B301D3F1166C3FA200E73841 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 320A2827FEC940B25BC42C63 /* Products */;
+					ProjectRef = 320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */;
+				},
+				{
+					ProductGroup = 3201088596B4756681693703 /* Products */;
+					ProjectRef = 3201088596B4756681693700 /* Three20UICommon.xcodeproj */;
+				},
+				{
+					ProductGroup = 320A737074758E53BA54BE93 /* Products */;
+					ProjectRef = 320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				B301D3EF166C3FA200E73841 /* SFIoc */,
+				B301D410166C3FA300E73841 /* SFIocTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3201088596B4756681693704 /* libThree20UICommon.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libThree20UICommon.a;
+			remoteRef = 3201088596B4756681693706 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		320A2827FEC940B25BC42C64 /* libThree20Core.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libThree20Core.a;
+			remoteRef = 320A2827FEC940B25BC42C66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		320A737074758E53BA54BE94 /* libThree20UINavigator.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libThree20UINavigator.a;
+			remoteRef = 320A737074758E53BA54BE96 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B308DD5F166C56B200CF1223 /* CoreUnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoreUnitTests.octest;
+			remoteRef = B308DD5E166C56B200CF1223 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B308DD6B166C56B200CF1223 /* UICommonUnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UICommonUnitTests.octest;
+			remoteRef = B308DD6A166C56B200CF1223 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B308DD6E166C56B200CF1223 /* UINavigatorUnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UINavigatorUnitTests.octest;
+			remoteRef = B308DD6D166C56B200CF1223 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B301D3EE166C3FA200E73841 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
+				B301D3FF166C3FA200E73841 /* InfoPlist.strings in Resources */,
+				B301D407166C3FA200E73841 /* Default.png in Resources */,
+				B301D409166C3FA200E73841 /* Default@2x.png in Resources */,
+				B301D40B166C3FA200E73841 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B301D40E166C3FA300E73841 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B301D41D166C3FA300E73841 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B301D40F166C3FA300E73841 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B301D3EC166C3FA200E73841 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B301D401166C3FA200E73841 /* main.m in Sources */,
+				B301D405166C3FA200E73841 /* SFAppDelegate.m in Sources */,
+				B301D435166C411400E73841 /* SFApplicationContext.m in Sources */,
+				B301D436166C411400E73841 /* SFClassLoader.m in Sources */,
+				B301D437166C411400E73841 /* SFObjectPattern.m in Sources */,
+				B301D43B166C41B400E73841 /* SFSingletonObject.m in Sources */,
+				B3FE7AEF166DA27800CA0B0C /* SFBaseApplicationContext.m in Sources */,
+				B3FE7AF2166DA31D00CA0B0C /* SFMyClassLoader.m in Sources */,
+				B3FE7AF5166DBB7500CA0B0C /* SFDrink.m in Sources */,
+				B3FE7AF8166DC73000CA0B0C /* SFCoffee.m in Sources */,
+				B3FE7AFB166DE14D00CA0B0C /* SFContextConfigurator.m in Sources */,
+				B3FE7AFE166DED3A00CA0B0C /* SFMilk.m in Sources */,
+				B3FE7B01166DF80B00CA0B0C /* SFXMLParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B301D40C166C3FA300E73841 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B301D420166C3FA300E73841 /* SFIocTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3201088596B4756681693701 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Three20UICommon;
+			targetProxy = 3201088596B4756681693702 /* PBXContainerItemProxy */;
+		};
+		320A2827FEC940B25BC42C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Three20Core;
+			targetProxy = 320A2827FEC940B25BC42C62 /* PBXContainerItemProxy */;
+		};
+		320A737074758E53BA54BE91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Three20UINavigator;
+			targetProxy = 320A737074758E53BA54BE92 /* PBXContainerItemProxy */;
+		};
+		B301D417166C3FA300E73841 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B301D3EF166C3FA200E73841 /* SFIoc */;
+			targetProxy = B301D416166C3FA300E73841 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B301D3FD166C3FA200E73841 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B301D3FE166C3FA200E73841 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B301D41B166C3FA300E73841 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B301D41C166C3FA300E73841 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B301D421166C3FA300E73841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../three20",
+					"$(BUILT_PRODUCTS_DIR)/../../three20",
+					Frameworks/three20/Build/Products/three20,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B301D422166C3FA300E73841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../three20",
+					"$(BUILT_PRODUCTS_DIR)/../../three20",
+					Frameworks/three20/Build/Products/three20,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B301D424166C3FA300E73841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SFIoc/SFIoc-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../three20",
+					Frameworks/three20/Build/Products/three20,
+					"$(BUILT_PRODUCTS_DIR)/../../three20",
+				);
+				INFOPLIST_FILE = "SFIoc/SFIoc-Info.plist";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B301D425166C3FA300E73841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SFIoc/SFIoc-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../three20",
+					Frameworks/three20/Build/Products/three20,
+					"$(BUILT_PRODUCTS_DIR)/../../three20",
+				);
+				INFOPLIST_FILE = "SFIoc/SFIoc-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B301D427166C3FA300E73841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SFIoc.app/SFIoc";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SFIoc/SFIoc-Prefix.pch";
+				INFOPLIST_FILE = "SFIocTests/SFIocTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B301D428166C3FA300E73841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SFIoc.app/SFIoc";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SFIoc/SFIoc-Prefix.pch";
+				INFOPLIST_FILE = "SFIocTests/SFIocTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B301D3EA166C3FA200E73841 /* Build configuration list for PBXProject "SFIoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B301D421166C3FA300E73841 /* Debug */,
+				B301D422166C3FA300E73841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B301D423166C3FA300E73841 /* Build configuration list for PBXNativeTarget "SFIoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B301D424166C3FA300E73841 /* Debug */,
+				B301D425166C3FA300E73841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B301D426166C3FA300E73841 /* Build configuration list for PBXNativeTarget "SFIocTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B301D427166C3FA300E73841 /* Debug */,
+				B301D428166C3FA300E73841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B301D3E7166C3FA200E73841 /* Project object */;
+}
