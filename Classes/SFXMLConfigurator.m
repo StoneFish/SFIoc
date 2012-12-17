@@ -62,35 +62,50 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     //解析到BEAN标签则初始化数据
     if ([[elementName uppercaseString] isEqualToString:@"BEAN"]) {
-        [self parseObjectPatternWithAttributes:attributeDict];
+        [self parseBeanWithAttributes:attributeDict];
     }
     if([[elementName uppercaseString] isEqualToString:@"PROPERTY"]){
-        [self parsePropertiesWithAttributes:attributeDict];
+        [self parsePropertyWithAttributes:attributeDict];
     }
-    
     /////////////////////////////////////////////////////////////////////////////////////
     
     if ([[elementName uppercaseString] isEqualToString:@"ARRAY"]) {
-        self.arrayValue = [NSMutableArray array];
-        [self.values setValue:self.arrayValue forKey:self.propertyName];
+        [self parseArray];
     }
     if ([[elementName uppercaseString] isEqualToString:@"MAP"]) {
-        self.mapValue = [NSMutableDictionary dictionary];
-        [self.values setValue:self.mapValue forKey:self.propertyName];
+        [self parseMap];
     }
+    /////////////////////////////////////////////////////////////////////////////////////
     if ([[elementName uppercaseString] isEqualToString:@"ITEM"]) {
-        TTDASSERT(self.arrayValue);
+        if (!self.arrayValue) {
+            [parser parserError];
+        }
         [self.arrayValue addObject:[self parseValue:[attributeDict objectForKey:@"value"]]];
     }
     if ([[elementName uppercaseString] isEqualToString:@"ELEMENT"]) {
-        TTDASSERT(self.mapValue);
+        if (!self.mapValue) {
+            [parser parserError];
+        }
         [self.mapValue setValue:[self parseValue:[attributeDict objectForKey:@"value"]] forKey:[attributeDict objectForKey:@"key"]];
     }
 }
 
 //发现元素结束符的处理函数，保存元素各项目数据（即报告元素的结束标记）
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
-    //TODO:should set all properties nil?
+    if ([[elementName uppercaseString] isEqualToString:@"BEAN"]) {
+        self.values = nil;
+        self.refBeans = nil;
+        self.objectPattern = nil;
+    }
+    if([[elementName uppercaseString] isEqualToString:@"PROPERTY"]){
+        self.propertyName = nil;
+    }
+    if ([[elementName uppercaseString] isEqualToString:@"ARRAY"]) {
+        self.arrayValue = nil;
+    }
+    if ([[elementName uppercaseString] isEqualToString:@"MAP"]) {
+        self.mapValue = nil;
+    }
 }
 
 //报告不可恢复的解析错误
@@ -98,51 +113,76 @@
     TTDPRINT(@"%@ \n line:%i \n publicID:%@ \n systemID:%@",parseError,parser.lineNumber,parser.publicID,parser.systemID);
     _parseError = [parseError retain];
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma -mark private
--(void)parseObjectPatternWithAttributes:(NSDictionary *) attributeDict
+-(void)parseBeanWithAttributes:(NSDictionary *) attributeDict
 {
     NSString * copiedObjectId = [attributeDict objectForKey:@"copy"];
     NSString * sharedObjectId = [attributeDict objectForKey:@"share"];
     NSString * identifier = [attributeDict objectForKey:@"id"];
     NSString * createURL = [attributeDict objectForKey:@"create-url"];
     SFObjectMode mode = [[attributeDict objectForKey:@"mode"] isEqualToString:@"create"]?SFObjectModeCreate:SFObjectModeShare;
-    
+    //guard
+    if (!(identifier && createURL)&& !copiedObjectId && !sharedObjectId) {
+        _parseError = [[NSError alloc]initWithDomain:@"bean Error" code:9 userInfo:@{NSLocalizedDescriptionKey : @"bean has no Id or url"}];
+        return;
+    }
+    if(sharedObjectId){
+        [self.delegate setPattern:[self.delegate objectPatternForIdentifier:sharedObjectId]
+                    forIdentifier:identifier];
+        self.objectPattern = nil;
+        return;
+    }
     if (copiedObjectId) {
-        //复制参数
         self.objectPattern = [[[self.delegate objectPatternForIdentifier:copiedObjectId] copy] autorelease];
-        self.values = [[self.objectPattern values] mutableCopy];
-        self.refBeans = [[self.objectPattern beans] mutableCopy];
-        self.objectPattern.values = self.values;
-        self.objectPattern.beans = self.refBeans;
-        [self.delegate setPattern:self.objectPattern forIdentifier: identifier];
-        
-    }else if(sharedObjectId){
-        [self.delegate setPattern:[self.delegate objectPatternForIdentifier:sharedObjectId] forIdentifier:identifier];
+        self.values = (NSMutableDictionary *)[self.objectPattern values];
+        self.refBeans = (NSMutableDictionary *)[self.objectPattern beans];
     }else{
-        self.values = [NSMutableDictionary dictionary];
-        self.refBeans = [NSMutableDictionary dictionary];
         self.objectPattern = [SFObjectPattern patternWithURL:createURL
-                                              propertyValues:self.values
-                                            propertyRefBeans:self.refBeans
+                                              propertyValues:nil
+                                            propertyRefBeans:nil
                                                   objectMode:mode];
-        [self.delegate setPattern:self.objectPattern forIdentifier:identifier];
     }
-    
+    [self.delegate setPattern:self.objectPattern forIdentifier:identifier];
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)parsePropertiesWithAttributes:(NSDictionary *) attributeDict
+-(void)parsePropertyWithAttributes:(NSDictionary *) attributeDict
 {
-    NSString * attribute = nil;
-    NSString * name = [attributeDict objectForKey:@"name"];
-    if ((attribute = [attributeDict objectForKey:@"value"])) {
-        [self.values setValue:[self parseValue:attribute] forKey:name];
+    if (self.objectPattern) {
+        NSString * attribute = nil;
+        NSString * name = [attributeDict objectForKey:@"name"];
+        if ((attribute = [attributeDict objectForKey:@"value"])) {
+            [self.values setValue:[self parseValue:attribute] forKey:name];
+            [self.objectPattern setValues:self.values];
+        }
+        if ((attribute = [attributeDict objectForKey:@"ref"])) {
+            [self.refBeans setValue:attribute forKey:name];
+            [self.objectPattern setBeans:self.refBeans];
+        }
+        self.propertyName = name;
     }
-    if ((attribute = [attributeDict objectForKey:@"ref"])) {
-        [self.refBeans setValue:attribute forKey:name];
-    }
-    self.propertyName = name;
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(void)parseArray
+{
+    if (self.propertyName) {
+        self.arrayValue = [NSMutableArray array];
+        [self.values setValue:self.arrayValue forKey:self.propertyName];
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(void)parseMap
+{
+    if (self.propertyName) {
+        self.mapValue = [NSMutableDictionary dictionary];
+        [self.values setValue:self.mapValue forKey:self.propertyName];
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(id)parseValue:(NSString *) value
 {
@@ -154,9 +194,29 @@
     }
     if ([value hasSuffix:@"f"]) {
         NSString * number = [value substringToIndex:value.length - 1];
-         return [NSNumber numberWithDouble:[number doubleValue]];
+        return [NSNumber numberWithDouble:[number doubleValue]];
     }
     return value;
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma -mark override
+-(NSMutableDictionary *)values
+{
+    if (!_values) {
+        self.values = [NSMutableDictionary dictionary];
+    }
+    return _values;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(NSMutableDictionary *)refBeans
+{
+    if (!_refBeans) {
+        self.refBeans = [NSMutableDictionary dictionary];
+    }
+    return _refBeans;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @end

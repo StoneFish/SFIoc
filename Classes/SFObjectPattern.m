@@ -53,8 +53,8 @@ propertyRefBeans:(NSDictionary *)beans
 - (id)copyWithZone:(NSZone *)zone
 {
     return [[SFObjectPattern alloc]initWithURL:self.url
-                                propertyValues:self.values
-                              propertyRefBeans:self.beans
+                                propertyValues:[[self.values mutableCopy] autorelease]
+                              propertyRefBeans:[[self.beans mutableCopy] autorelease]
                                     objectMode:self.objectMode];
 }
 @end
