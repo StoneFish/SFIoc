@@ -18,6 +18,7 @@
 
 @property(nonatomic,retain) NSMutableArray * arrayValue;
 @property(nonatomic,retain) NSMutableDictionary * mapValue;
+@property(nonatomic,retain) NSString * propertyName;
 
 @end
 
@@ -29,6 +30,9 @@
     TT_RELEASE_SAFELY(_objectPattern);
     TT_RELEASE_SAFELY(_values);
     TT_RELEASE_SAFELY(_refBeans);
+    TT_RELEASE_SAFELY(_arrayValue);
+    TT_RELEASE_SAFELY(_mapValue);
+    TT_RELEASE_SAFELY(_propertyName);
     [super dealloc];
 }
 
@@ -68,17 +72,19 @@
     
     if ([[elementName uppercaseString] isEqualToString:@"ARRAY"]) {
         self.arrayValue = [NSMutableArray array];
+        [self.values setValue:self.arrayValue forKey:self.propertyName];
     }
     if ([[elementName uppercaseString] isEqualToString:@"MAP"]) {
         self.mapValue = [NSMutableDictionary dictionary];
+        [self.values setValue:self.mapValue forKey:self.propertyName];
     }
-    if ([[elementName uppercaseString] isEqualToString:@"LIST"]) {
+    if ([[elementName uppercaseString] isEqualToString:@"ITEM"]) {
         TTDASSERT(self.arrayValue);
         [self.arrayValue addObject:[self parseValue:[attributeDict objectForKey:@"value"]]];
     }
     if ([[elementName uppercaseString] isEqualToString:@"ELEMENT"]) {
         TTDASSERT(self.mapValue);
-        [self.arrayValue setValue:[self parseValue:[attributeDict objectForKey:@"value"]] forKey:[attributeDict objectForKey:@"key"]];
+        [self.mapValue setValue:[self parseValue:[attributeDict objectForKey:@"value"]] forKey:[attributeDict objectForKey:@"key"]];
     }
 }
 
@@ -89,7 +95,7 @@
 
 //报告不可恢复的解析错误
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{
-    TTDPRINT(@"%@",parseError);
+    TTDPRINT(@"%@ \n line:%i \n publicID:%@ \n systemID:%@",parseError,parser.lineNumber,parser.publicID,parser.systemID);
     _parseError = [parseError retain];
 }
 
@@ -105,10 +111,14 @@
     if (copiedObjectId) {
         //复制参数
         self.objectPattern = [[[self.delegate objectPatternForIdentifier:copiedObjectId] copy] autorelease];
+        self.values = [[self.objectPattern values] mutableCopy];
+        self.refBeans = [[self.objectPattern beans] mutableCopy];
+        self.objectPattern.values = self.values;
+        self.objectPattern.beans = self.refBeans;
         [self.delegate setPattern:self.objectPattern forIdentifier: identifier];
         
     }else if(sharedObjectId){
-        [self.delegate setPattern:[self.delegate objectPatternForIdentifier:copiedObjectId] forIdentifier:identifier];
+        [self.delegate setPattern:[self.delegate objectPatternForIdentifier:sharedObjectId] forIdentifier:identifier];
     }else{
         self.values = [NSMutableDictionary dictionary];
         self.refBeans = [NSMutableDictionary dictionary];
@@ -131,12 +141,7 @@
     if ((attribute = [attributeDict objectForKey:@"ref"])) {
         [self.refBeans setValue:attribute forKey:name];
     }
-    if (self.mapValue) {
-        [self.values setValue:self.mapValue forKey:name];
-    }
-    if (self.arrayValue) {
-        [self.values setValue:self.arrayValue forKey:name];
-    }
+    self.propertyName = name;
 }
 
 -(id)parseValue:(NSString *) value
@@ -146,6 +151,10 @@
     }
     if ([[value uppercaseString]isEqualToString:@"FALSE"]) {
         return [NSNumber numberWithBool:NO];
+    }
+    if ([value hasSuffix:@"f"]) {
+        NSString * number = [value substringToIndex:value.length - 1];
+         return [NSNumber numberWithDouble:[number doubleValue]];
     }
     return value;
 }

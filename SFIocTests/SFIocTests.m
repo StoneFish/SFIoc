@@ -11,6 +11,10 @@
 #import "SFMyClassLoader.h"
 #import "SFMyConfigurator.h"
 
+#import "SFTestClassLoader.h"
+#import "SFTester.h"
+#import "SFBeanTester.h"
+
 @implementation SFIocTests
 
 - (void)setUp
@@ -29,11 +33,52 @@
 
 - (void)testExample
 {
-    //config with code
-    [self configWithCode];
+    [self xmlTester];
     
-    //use xml file to config
-    [self configWithXML];
+    //config with code sample
+//    [self configWithCode];
+    
+    //use xml file to config sample
+//    [self configWithXML];
+}
+
+-(void)xmlTester
+{
+    SFApplicationContext * context = [SFApplicationContext shareContext];
+    SFClassLoader * classLoader = [[[SFTestClassLoader alloc]init] autorelease];
+    [context setClassLoader:classLoader];
+
+    TTDASSERT([context configApplicationContextForXmlPath:@"bundle://UnitTest.xml"]);
+    SFTester *tester = [context objectForIdentifier:@"tester"];
+    SFTester *copiedTester = [context objectForIdentifier:@"copiedTester"];
+    SFTester *sharedTester = [context objectForIdentifier:@"sharedTester"];
+    SFBeanTester *refShareBean = [context objectForIdentifier:@"refShareBean"];
+    SFBeanTester *refCreationBean = [context objectForIdentifier:@"refCreationBean"];
+    SFBeanTester * refShareSubBean = [context objectForIdentifier:@"refShareSubBean"];
+    
+    NSArray * arrary = @[@"1" ,@"y" ,@1];
+    NSDictionary * dictionary = @{@"a" : @"A101" ,@"b" :@"B-D999",@"c":@"C103"};
+    
+    TTDASSERT([tester.stringValue isEqualToString:@"I am tester"]);
+    TTDASSERT([tester.numberValue isEqualToNumber:@1]);
+    TTDASSERT(tester.boolValue == YES);
+    TTDASSERT([[tester.arrayValue objectAtIndex:0] isEqualToString:[arrary objectAtIndex:0]]);
+    TTDASSERT(tester.arrayValue.count == arrary.count);
+    TTDASSERT([[tester.dictionaryValue valueForKey:@"b"]isEqualToString:[dictionary valueForKey:@"b"]]);
+    TTDASSERT(tester.beanValue == refShareBean);
+    TTDASSERT(nil != [tester.beanValue subBean] && [[tester.beanValue subBean]isEqual:refShareSubBean]);
+        
+    TTDASSERT([copiedTester.stringValue isEqualToString:@"I am copied tester"]);
+    TTDASSERT([copiedTester.numberValue isEqualToNumber:@(-1)]);
+    TTDASSERT(copiedTester.boolValue ==NO);
+    TTDASSERT(copiedTester.beanValue != refCreationBean);
+    
+    TTDASSERT([sharedTester.stringValue isEqualToString:tester.stringValue]);
+    TTDASSERT([sharedTester.numberValue isEqualToNumber:tester.numberValue]);
+    TTDASSERT(sharedTester.boolValue == tester.boolValue);
+    TTDASSERT([sharedTester.arrayValue isEqualToArray:tester.arrayValue]);
+    TTDASSERT([sharedTester.dictionaryValue isEqualToDictionary:tester.dictionaryValue]);
+    TTDASSERT([sharedTester.beanValue isEqual:tester.beanValue]);
 }
 
 -(void)configWithCode

@@ -27,6 +27,6 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"\n name:%@ \n price: %@ \n",self.name,self.price];
+    return [NSString stringWithFormat:@"\n name:%@ \n price: %f \n",self.name,[self.price floatValue]];
 }
 @end

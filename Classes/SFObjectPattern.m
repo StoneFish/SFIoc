@@ -14,7 +14,6 @@
 @synthesize beans = _beans;
 @synthesize objectMode = _objectMode;
 
-
 - (void)dealloc
 {
     TT_RELEASE_SAFELY(_url);
@@ -51,4 +50,11 @@ propertyRefBeans:(NSDictionary *)beans
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [[SFObjectPattern alloc]initWithURL:self.url
+                                propertyValues:self.values
+                              propertyRefBeans:self.beans
+                                    objectMode:self.objectMode];
+}
 @end

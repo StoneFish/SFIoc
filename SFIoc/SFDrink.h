@@ -12,7 +12,7 @@
 
 @property(nonatomic,copy) NSString * name;
 
-@property(nonatomic,copy) NSNumber * price;
+@property(nonatomic,retain) NSNumber * price;
 
 @end
 
@@ -22,6 +22,6 @@
 
 @property(nonatomic,copy) NSString * name;
 
-@property(nonatomic,copy) NSNumber * price;
+@property(nonatomic,retain) NSNumber * price;
 
 @end

@@ -32,6 +32,10 @@
 		B301D43B166C41B400E73841 /* SFSingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D43A166C41B400E73841 /* SFSingletonObject.m */; };
 		B3136E6C167D924F00E146DC /* SFMyConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3136E6B167D924F00E146DC /* SFMyConfigurator.m */; };
 		B3136E6E167D9A1300E146DC /* beans.xml in Resources */ = {isa = PBXBuildFile; fileRef = B3136E6D167D9A1300E146DC /* beans.xml */; };
+		B3CB6E58167EDF050095B66E /* UnitTest.xml in Resources */ = {isa = PBXBuildFile; fileRef = B3CB6E57167EDF050095B66E /* UnitTest.xml */; };
+		B3CB6E5C167EDFDD0095B66E /* SFTester.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CB6E5B167EDFDD0095B66E /* SFTester.m */; };
+		B3CB6E5F167EF0AD0095B66E /* SFTestClassLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CB6E5E167EF0AD0095B66E /* SFTestClassLoader.m */; };
+		B3CB6E62167EF1980095B66E /* SFBeanTester.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CB6E61167EF1970095B66E /* SFBeanTester.m */; };
 		B3FE7AEF166DA27800CA0B0C /* SFBaseApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AEE166DA27800CA0B0C /* SFBaseApplicationContext.m */; };
 		B3FE7AF2166DA31D00CA0B0C /* SFMyClassLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AF1166DA31D00CA0B0C /* SFMyClassLoader.m */; };
 		B3FE7AF5166DBB7500CA0B0C /* SFDrink.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AF4166DBB7500CA0B0C /* SFDrink.m */; };
@@ -150,6 +154,13 @@
 		B3136E6A167D924F00E146DC /* SFMyConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFMyConfigurator.h; sourceTree = "<group>"; };
 		B3136E6B167D924F00E146DC /* SFMyConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFMyConfigurator.m; sourceTree = "<group>"; };
 		B3136E6D167D9A1300E146DC /* beans.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = beans.xml; sourceTree = "<group>"; };
+		B3CB6E57167EDF050095B66E /* UnitTest.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = UnitTest.xml; path = SFIocTests/UnitTest.xml; sourceTree = SOURCE_ROOT; };
+		B3CB6E5A167EDFDD0095B66E /* SFTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFTester.h; sourceTree = "<group>"; };
+		B3CB6E5B167EDFDD0095B66E /* SFTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFTester.m; sourceTree = "<group>"; };
+		B3CB6E5D167EF0AD0095B66E /* SFTestClassLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFTestClassLoader.h; sourceTree = "<group>"; };
+		B3CB6E5E167EF0AD0095B66E /* SFTestClassLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFTestClassLoader.m; sourceTree = "<group>"; };
+		B3CB6E60167EF1970095B66E /* SFBeanTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFBeanTester.h; sourceTree = "<group>"; };
+		B3CB6E61167EF1970095B66E /* SFBeanTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFBeanTester.m; sourceTree = "<group>"; };
 		B3FE7AED166DA27800CA0B0C /* SFBaseApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFBaseApplicationContext.h; sourceTree = "<group>"; };
 		B3FE7AEE166DA27800CA0B0C /* SFBaseApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFBaseApplicationContext.m; sourceTree = "<group>"; };
 		B3FE7AF0166DA31D00CA0B0C /* SFMyClassLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFMyClassLoader.h; path = SFIoc/SFMyClassLoader.h; sourceTree = SOURCE_ROOT; };
@@ -296,6 +307,8 @@
 		B301D418166C3FA300E73841 /* SFIocTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3CB6E59167EDF180095B66E /* Classes */,
+				B3CB6E57167EDF050095B66E /* UnitTest.xml */,
 				B301D41E166C3FA300E73841 /* SFIocTests.h */,
 				B301D41F166C3FA300E73841 /* SFIocTests.m */,
 				B301D419166C3FA300E73841 /* Supporting Files */,
@@ -338,6 +351,19 @@
 				B301D43A166C41B400E73841 /* SFSingletonObject.m */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		B3CB6E59167EDF180095B66E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B3CB6E5A167EDFDD0095B66E /* SFTester.h */,
+				B3CB6E5B167EDFDD0095B66E /* SFTester.m */,
+				B3CB6E60167EF1970095B66E /* SFBeanTester.h */,
+				B3CB6E61167EF1970095B66E /* SFBeanTester.m */,
+				B3CB6E5D167EF0AD0095B66E /* SFTestClassLoader.h */,
+				B3CB6E5E167EF0AD0095B66E /* SFTestClassLoader.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +506,7 @@
 				B301D409166C3FA200E73841 /* Default@2x.png in Resources */,
 				B301D40B166C3FA200E73841 /* Default-568h@2x.png in Resources */,
 				B3136E6E167D9A1300E146DC /* beans.xml in Resources */,
+				B3CB6E58167EDF050095B66E /* UnitTest.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +563,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B301D420166C3FA300E73841 /* SFIocTests.m in Sources */,
+				B3CB6E5C167EDFDD0095B66E /* SFTester.m in Sources */,
+				B3CB6E5F167EF0AD0095B66E /* SFTestClassLoader.m in Sources */,
+				B3CB6E62167EF1980095B66E /* SFBeanTester.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

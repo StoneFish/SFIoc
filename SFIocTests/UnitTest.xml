@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <!--tester-->
+    <bean id="tester" create-url="tt://tester" mode="create">
+        <property name="stringValue" value="I am tester"/>
+        <property name="numberValue" value="1f"/>
+        <property name="boolValue" value="true"/>
+        <property name="arrayValue">
+            <array>
+                <item value="1"/>
+                <item value="y"/>
+                <item value="true"/>
+            </array>
+        </property>
+        <property name="dictionaryValue">
+            <map>
+                <element key="a" value="A101"/>
+                <element key="b" value="B102"/>
+                <element key="c" value="C103"/>
+                <element key="b" value="B-D999"/>
+            </map>
+        </property>
+        <property name="beanValue" ref="refShareBean"/>
+        <property name="beanValue.subBean" ref="refShareSubBean"/>
+    </bean>
+    <!--copied tester-->
+    <bean id="copiedTester" copy="tester">
+        <property name="stringValue" value="I am copied tester"/>
+        <property name="numberValue" value="-1f"/>
+        <property name="boolValue" value="false"/>
+    </bean>
+    <!--shared tester-->
+    <bean id="sharedTester" share="tester"/>
+    <!--shared reference-->
+    <bean id="refShareBean" create-url="tt://refBean" mode="share"/>
+    <!--shared reference for sub bean-->
+    <bean id="refShareSubBean" create-url="tt://refBean" mode="share"/>
+    <!--shared reference-->
+    <bean id="refCreationBean" create-url="tt://refBean" mode="create"/>
+</beans>

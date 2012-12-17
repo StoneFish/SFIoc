@@ -13,7 +13,7 @@ typedef enum {
     SFObjectModeShare,             // a new view controller is created, cached and re-used
 } SFObjectMode;
 
-@interface SFObjectPattern : NSObject
+@interface SFObjectPattern : NSObject <NSCopying>
 
 +(id)patternWithURL:(NSString *) url
      propertyValues:(NSDictionary *) values
