@@ -10,13 +10,15 @@
 
 @implementation SFContextConfigurator
 
--(void)configWith:(id<SFConfigurable>)delegate
+-(BOOL)configWithDelegate:(id<SFConfigurable>)delegate
 {
     self.delegate = delegate;
-    [self startConfig];
+    return [self startConfig];
 }
 
--(void)startConfig
-{}
+-(BOOL)startConfig
+{
+    return YES;
+}
 
 @end

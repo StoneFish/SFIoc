@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <!---->
+    <bean id="coffee"  create-url="tt://coffee/Blendy" mode="create">
+        <property name="price" value="20"/>
+        <property name="sugar" value="xml sugar"/>
+        <property name="milk" ref="xmlOrangeMilk"/>
+    </bean>
+    <!---->
+    <bean id="xmlOrangeMilk"  create-url="tt://milk/xmlSkim" mode="create">
+        <property name="price" value="5"/>
+    </bean>
+    <!---->
+    <!--bean id="arrayTester" create-url="tt://arrayTester" mode="create">
+        <property name="array">
+            <array>
+                <list value="3"/>
+                <list value="4"/>
+                <list value="5"/>
+            </array>
+        </property>
+    </bean-->
+    <!---->
+    <!--bean id="mapTester" create-url="tt://mapTester" mode="create">
+        <property name="map">
+            <map>
+                <element key="title" value="${workflow_name}:${employee_name}"/>
+                <element key="caption" value="当前节点: ${node_name}"/>
+                <element key="text" value="${workflow_desc}"/>
+                <element key="timestamp" value="${creation_date}"/>
+                <element key="isLate" value="${is_late}"/>
+            </map>
+        </property>
+    </bean-->
+</beans>

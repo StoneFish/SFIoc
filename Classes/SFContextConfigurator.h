@@ -13,19 +13,21 @@
 
 -(void)setPattern:(SFObjectPattern *) pattern forIdentifier:(NSString *)identifier;
 
+-(SFObjectPattern*)objectPatternForIdentifier:(NSString *)identifier;
+
 @end
 
 @protocol SFContextConfigurator <NSObject>
 
--(void)configWith:(id <SFConfigurable>) delegate;
+-(BOOL)configWithDelegate:(id <SFConfigurable>) delegate;
 
 @end
 
 @interface SFContextConfigurator : NSObject <SFContextConfigurator>
 
--(void)configWith:(id<SFConfigurable>)delegate;
+-(BOOL)configWithDelegate:(id<SFConfigurable>)delegate;
 
--(void)startConfig;
+-(BOOL)startConfig;
 
 @property(nonatomic,assign) id<SFConfigurable> delegate;
 

@@ -30,13 +30,15 @@
 		B301D436166C411400E73841 /* SFClassLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D433166C411400E73841 /* SFClassLoader.m */; };
 		B301D437166C411400E73841 /* SFObjectPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D434166C411400E73841 /* SFObjectPattern.m */; };
 		B301D43B166C41B400E73841 /* SFSingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B301D43A166C41B400E73841 /* SFSingletonObject.m */; };
+		B3136E6C167D924F00E146DC /* SFMyConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3136E6B167D924F00E146DC /* SFMyConfigurator.m */; };
+		B3136E6E167D9A1300E146DC /* beans.xml in Resources */ = {isa = PBXBuildFile; fileRef = B3136E6D167D9A1300E146DC /* beans.xml */; };
 		B3FE7AEF166DA27800CA0B0C /* SFBaseApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AEE166DA27800CA0B0C /* SFBaseApplicationContext.m */; };
 		B3FE7AF2166DA31D00CA0B0C /* SFMyClassLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AF1166DA31D00CA0B0C /* SFMyClassLoader.m */; };
 		B3FE7AF5166DBB7500CA0B0C /* SFDrink.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AF4166DBB7500CA0B0C /* SFDrink.m */; };
 		B3FE7AF8166DC73000CA0B0C /* SFCoffee.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AF7166DC73000CA0B0C /* SFCoffee.m */; };
 		B3FE7AFB166DE14D00CA0B0C /* SFContextConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AFA166DE14C00CA0B0C /* SFContextConfigurator.m */; };
 		B3FE7AFE166DED3A00CA0B0C /* SFMilk.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AFD166DED3900CA0B0C /* SFMilk.m */; };
-		B3FE7B01166DF80B00CA0B0C /* SFXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7B00166DF80A00CA0B0C /* SFXMLParser.m */; };
+		B3FE7B01166DF80B00CA0B0C /* SFXMLConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7B00166DF80A00CA0B0C /* SFXMLConfigurator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,9 @@
 		B301D434166C411400E73841 /* SFObjectPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFObjectPattern.m; sourceTree = "<group>"; };
 		B301D439166C41B400E73841 /* SFSingletonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFSingletonObject.h; sourceTree = "<group>"; };
 		B301D43A166C41B400E73841 /* SFSingletonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFSingletonObject.m; sourceTree = "<group>"; };
+		B3136E6A167D924F00E146DC /* SFMyConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFMyConfigurator.h; sourceTree = "<group>"; };
+		B3136E6B167D924F00E146DC /* SFMyConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFMyConfigurator.m; sourceTree = "<group>"; };
+		B3136E6D167D9A1300E146DC /* beans.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = beans.xml; sourceTree = "<group>"; };
 		B3FE7AED166DA27800CA0B0C /* SFBaseApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFBaseApplicationContext.h; sourceTree = "<group>"; };
 		B3FE7AEE166DA27800CA0B0C /* SFBaseApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFBaseApplicationContext.m; sourceTree = "<group>"; };
 		B3FE7AF0166DA31D00CA0B0C /* SFMyClassLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFMyClassLoader.h; path = SFIoc/SFMyClassLoader.h; sourceTree = SOURCE_ROOT; };
@@ -157,8 +162,8 @@
 		B3FE7AFA166DE14C00CA0B0C /* SFContextConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFContextConfigurator.m; sourceTree = "<group>"; };
 		B3FE7AFC166DED3900CA0B0C /* SFMilk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFMilk.h; path = SFIoc/SFMilk.h; sourceTree = SOURCE_ROOT; };
 		B3FE7AFD166DED3900CA0B0C /* SFMilk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFMilk.m; path = SFIoc/SFMilk.m; sourceTree = SOURCE_ROOT; };
-		B3FE7AFF166DF80A00CA0B0C /* SFXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFXMLParser.h; sourceTree = "<group>"; };
-		B3FE7B00166DF80A00CA0B0C /* SFXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFXMLParser.m; sourceTree = "<group>"; };
+		B3FE7AFF166DF80A00CA0B0C /* SFXMLConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFXMLConfigurator.h; sourceTree = "<group>"; };
+		B3FE7B00166DF80A00CA0B0C /* SFXMLConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFXMLConfigurator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +260,9 @@
 		B301D3FA166C3FA200E73841 /* SFIoc */ = {
 			isa = PBXGroup;
 			children = (
+				B3136E6D167D9A1300E146DC /* beans.xml */,
+				B3136E6A167D924F00E146DC /* SFMyConfigurator.h */,
+				B3136E6B167D924F00E146DC /* SFMyConfigurator.m */,
 				B3FE7AF0166DA31D00CA0B0C /* SFMyClassLoader.h */,
 				B3FE7AF1166DA31D00CA0B0C /* SFMyClassLoader.m */,
 				B3FE7AF3166DBB7500CA0B0C /* SFDrink.h */,
@@ -317,8 +325,8 @@
 				B301D434166C411400E73841 /* SFObjectPattern.m */,
 				B3FE7AF9166DE14C00CA0B0C /* SFContextConfigurator.h */,
 				B3FE7AFA166DE14C00CA0B0C /* SFContextConfigurator.m */,
-				B3FE7AFF166DF80A00CA0B0C /* SFXMLParser.h */,
-				B3FE7B00166DF80A00CA0B0C /* SFXMLParser.m */,
+				B3FE7AFF166DF80A00CA0B0C /* SFXMLConfigurator.h */,
+				B3FE7B00166DF80A00CA0B0C /* SFXMLConfigurator.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -471,6 +479,7 @@
 				B301D407166C3FA200E73841 /* Default.png in Resources */,
 				B301D409166C3FA200E73841 /* Default@2x.png in Resources */,
 				B301D40B166C3FA200E73841 /* Default-568h@2x.png in Resources */,
+				B3136E6E167D9A1300E146DC /* beans.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +526,8 @@
 				B3FE7AF8166DC73000CA0B0C /* SFCoffee.m in Sources */,
 				B3FE7AFB166DE14D00CA0B0C /* SFContextConfigurator.m in Sources */,
 				B3FE7AFE166DED3A00CA0B0C /* SFMilk.m in Sources */,
-				B3FE7B01166DF80B00CA0B0C /* SFXMLParser.m in Sources */,
+				B3FE7B01166DF80B00CA0B0C /* SFXMLConfigurator.m in Sources */,
+				B3136E6C167D924F00E146DC /* SFMyConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,7 @@
 +(id)patternWithURL:(NSString *)url
      propertyValues:(NSDictionary *)values
    propertyRefBeans:(NSDictionary *)beans
-         objectMode:(NSInteger)mode
+         objectMode:(SFObjectMode)mode
 {
     return [[[self alloc]initWithURL:url
                       propertyValues:values
