@@ -3,7 +3,7 @@
     <!--tester-->
     <bean id="tester" create-url="tt://tester" mode="create">
         <property name="stringValue" value="I am tester"/>
-        <property name="numberValue" value="1f"/>
+        <property name="numberValue" value="#1"/>
         <property name="boolValue" value="true"/>
         <property name="arrayValue">
             <array>
@@ -26,7 +26,7 @@
     <!--copied tester-->
     <bean id="copiedTester" copy="tester">
         <property name="stringValue" value="I am copied tester"/>
-        <property name="numberValue" value="-1f"/>
+        <property name="numberValue" value="#-1"/>
         <property name="boolValue" value="false"/>
     </bean>
     <!--shared tester-->

@@ -60,33 +60,12 @@
 #pragma mark - NSXMLParserDelegate
 //发现元素开始符的处理函数  （即报告元素的开始以及元素的属性）
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
-    //解析到BEAN标签则初始化数据
-    if ([[elementName uppercaseString] isEqualToString:@"BEAN"]) {
-        [self parseBeanWithAttributes:attributeDict];
-    }
-    if([[elementName uppercaseString] isEqualToString:@"PROPERTY"]){
-        [self parsePropertyWithAttributes:attributeDict];
-    }
-    /////////////////////////////////////////////////////////////////////////////////////
-    
-    if ([[elementName uppercaseString] isEqualToString:@"ARRAY"]) {
-        [self parseArray];
-    }
-    if ([[elementName uppercaseString] isEqualToString:@"MAP"]) {
-        [self parseMap];
-    }
-    /////////////////////////////////////////////////////////////////////////////////////
-    if ([[elementName uppercaseString] isEqualToString:@"ITEM"]) {
-        if (!self.arrayValue) {
-            [parser parserError];
-        }
-        [self.arrayValue addObject:[self parseValue:[attributeDict objectForKey:@"value"]]];
-    }
-    if ([[elementName uppercaseString] isEqualToString:@"ELEMENT"]) {
-        if (!self.mapValue) {
-            [parser parserError];
-        }
-        [self.mapValue setValue:[self parseValue:[attributeDict objectForKey:@"value"]] forKey:[attributeDict objectForKey:@"key"]];
+    NSString * selectorString = [NSString stringWithFormat:@"parse%@%@WithAttributes:",[[elementName substringToIndex:1] uppercaseString],[[elementName substringFromIndex:1] lowercaseString]];
+    SEL parseSelector = NSSelectorFromString(selectorString);
+    if ([self respondsToSelector:parseSelector]) {
+        [self performSelector:parseSelector withObject:attributeDict];
+    }else{
+        TTDPRINT(@"\ntag %@ is not be parsed! \n",elementName);
     }
 }
 
@@ -166,7 +145,7 @@
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)parseArray
+-(void)parseArrayWithAttributes:(NSDictionary *)attributeDict
 {
     if (self.propertyName) {
         self.arrayValue = [NSMutableArray array];
@@ -175,11 +154,26 @@
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)parseMap
+-(void)parseMapWithAttributes:(NSDictionary *)attributeDict
 {
     if (self.propertyName) {
         self.mapValue = [NSMutableDictionary dictionary];
         [self.values setValue:self.mapValue forKey:self.propertyName];
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(void)parseItemWithAttributes:(NSDictionary *)attributeDict
+{
+    if (self.arrayValue) {
+        [self.arrayValue addObject:[self parseValue:[attributeDict objectForKey:@"value"]]];
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+-(void)parseElementWithAttributes:(NSDictionary *)attributeDict
+{
+    if (self.mapValue) {
+        [self.mapValue setValue:[self parseValue:[attributeDict objectForKey:@"value"]] forKey:[attributeDict objectForKey:@"key"]];
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -192,8 +186,8 @@
     if ([[value uppercaseString]isEqualToString:@"FALSE"]) {
         return [NSNumber numberWithBool:NO];
     }
-    if ([value hasSuffix:@"f"]) {
-        NSString * number = [value substringToIndex:value.length - 1];
+    if ([value hasPrefix:@"#"]) {
+        NSString * number = [value substringFromIndex:1];
         return [NSNumber numberWithDouble:[number doubleValue]];
     }
     return value;
